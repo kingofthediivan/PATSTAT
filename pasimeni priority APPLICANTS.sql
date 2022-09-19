@@ -99,6 +99,9 @@ WHERE
 
 --Procedure proposed by Pasimeni (2019)
 
+/*In order to show an example of these inconsistencies, Table 1 summarises the result of the query run in PATSTAT Online (2018 spring version) that searches and retrieves all person_id, and the related person_ctry_code, that have doc_std_name = 1. This identifier represents the Finnish Nokia Corporation and groups together 174 different entries. 130 of them are associated correctly with the country code ’FI’, 20 of them with the United States, 10 do not have any code and the remaining are associated with several other countries. Despite this lack of accuracy, it is worth noting that a country code occurs more frequently than the others. In this example, about 75% of person_id are assigned correctly to Finland. Therefore, it is reasonable to assume that also the remaining person_id, grouped under the doc_std_name_id=1, can be assigned to the same country.
+The allocation procedure proposed in this paper is based on this rationale. It is assumed that the person_ctry_code associated more fre- quently to one doc_std_name_id is the correct one, and that can be automatically assigned to all person_id grouped under the doc_std_name_id itself./*
+
 drop TABLE person_ctry_code_ALL;
 
 SELECT
