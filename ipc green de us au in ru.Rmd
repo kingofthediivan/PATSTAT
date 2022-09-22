@@ -1,0 +1,154 @@
+---
+title: "ipc green de us au in ru"
+output: html_document
+date: "2022-09-22"
+---
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+
+greencat <- read.csv("~/Downloads/patstat2020a-22-09-green_cat.csv")
+total <- read.csv("~/Downloads/patstat2020a-22-09-total.csv")
+
+cat_green <- right_join(greencat, total, by=c("earliest_filing_year", "doc_ctry_code"))
+
+
+```
+
+```{r}
+cat_green %>%
+  na.omit() %>%
+  filter(!green_inventory == "Other") %>% 
+  group_by(earliest_filing_year, doc_ctry_code) %>% 
+  mutate(is_green = sum(green_cat), perc_green = is_green*100/total) %>%
+  filter(earliest_filing_year >= 1900 & earliest_filing_year <= 2020) %>%
+  ggplot(aes(x = earliest_filing_year, y = perc_green, color = doc_ctry_code)) +
+  #geom_line() +
+  scale_x_continuous(breaks=c(1900,1920,1940,1960,1980,2000,2020), limits=c(1900,2020)) +
+  #geom_bar(stat="identity") +
+  geom_jitter(alpha = 0.1) +
+  geom_smooth(method = "gam", formula = y ~ s(x, bs = "cs"), se = FALSE) +
+  #geom_smooth(method = "loess", se = FALSE) +
+  facet_wrap(~doc_ctry_code)
+
+
+```
+
+```{r}
+
+cat_green %>%
+  filter(!green_inventory == "Other") %>% 
+  na.omit() %>% 
+  filter(doc_ctry_code == "DE") %>% 
+  group_by(earliest_filing_year, doc_ctry_code) %>% 
+  mutate(is_green = sum(green_cat)) %>% 
+  filter(earliest_filing_year >= 1900 & earliest_filing_year <= 2020) %>%
+  ggplot(aes(x = earliest_filing_year, y = green_cat, color = green_inventory)) +
+  geom_line() +
+  labs(title = "Deutschland") +
+  scale_x_continuous(breaks=c(1900,1920,1940,1960,1980,2000,2020), limits=c(1900,2020)) +
+  #geom_bar(stat="identity") +
+  #geom_smooth(method = "loess", se = FALSE) +
+  facet_wrap(~green_inventory)
+
+```
+
+```{r}
+
+cat_green %>%
+  filter(!green_inventory == "Other") %>% 
+  na.omit() %>% 
+  filter(doc_ctry_code == "RU") %>% 
+  group_by(earliest_filing_year, doc_ctry_code) %>% 
+  mutate(is_green = sum(green_cat)) %>% 
+  filter(earliest_filing_year >= 1900 & earliest_filing_year <= 2020) %>%
+  ggplot(aes(x = earliest_filing_year, y = green_cat, color = green_inventory)) +
+  geom_line() +
+  scale_x_continuous(breaks=c(1900,1920,1940,1960,1980,2000,2020), limits=c(1900,2020)) +
+  labs(title = "USSR & Russian Federation") +
+  #geom_bar(stat="identity") +
+  #geom_smooth(method = "loess", se = FALSE) +
+  facet_wrap(~green_inventory)
+
+```
+
+```{r}
+
+cat_green %>%
+  filter(!green_inventory == "Other") %>% 
+  na.omit() %>% 
+  filter(doc_ctry_code == "IN") %>% 
+  group_by(earliest_filing_year, doc_ctry_code) %>% 
+  mutate(is_green = sum(green_cat)) %>%
+  filter(earliest_filing_year >= 1900 & earliest_filing_year <= 2020) %>%
+  ggplot(aes(x = earliest_filing_year, y = green_cat, color = green_inventory)) +
+  geom_line() +
+  labs(title = "India") +
+  scale_x_continuous(breaks=c(1900,1920,1940,1960,1980,2000,2020), limits=c(1900,2020)) +
+  #geom_bar(stat="identity") +
+  #geom_smooth(method = "loess", se = FALSE) +
+  facet_wrap(~green_inventory)
+
+```
+
+```{r}
+
+cat_green %>%
+  filter(!green_inventory == "Other") %>% 
+  na.omit() %>% 
+  filter(doc_ctry_code == "US") %>% 
+  group_by(earliest_filing_year, doc_ctry_code) %>% 
+  mutate(is_green = sum(green_cat)) %>% 
+  filter(earliest_filing_year >= 1900 & earliest_filing_year <= 2020) %>%
+  ggplot(aes(x = earliest_filing_year, y = green_cat, color = green_inventory)) +
+  labs(title = "United States") +
+  geom_line() +
+  scale_x_continuous(breaks=c(1900,1920,1940,1960,1980,2000,2020), limits=c(1900,2020)) +
+  #geom_bar(stat="identity") +
+  #geom_smooth(method = "loess", se = FALSE) +
+  facet_wrap(~green_inventory)
+
+```
+
+
+```{r}
+
+cat_green %>%
+  filter(!green_inventory == "Other") %>% 
+  na.omit() %>% 
+  filter(doc_ctry_code == "AU") %>% 
+  group_by(earliest_filing_year, doc_ctry_code) %>% 
+  mutate(is_green = sum(green_cat)) %>% 
+  filter(earliest_filing_year >= 1900 & earliest_filing_year <= 2020) %>%
+  ggplot(aes(x = earliest_filing_year, y = green_cat, color = green_inventory)) +
+  labs(title = "Australia") +
+  geom_line() +
+  scale_x_continuous(breaks=c(1900,1920,1940,1960,1980,2000,2020), limits=c(1900,2020)) +
+  #geom_bar(stat="identity") +
+  #geom_smooth(method = "loess", se = FALSE) +
+  facet_wrap(~green_inventory)
+
+```
+
+```{r}
+
+
+cat_green$green_inventory <- cat_green$green_inventory %>% factor(levels= c("Other", "Administrative and regulatory",
+"Agriculture and Forestry", "Alternative energy	", "Energy conservation", "Nuclear Power Generation", "Transportation", "Waste management"))
+
+
+cat_green %>%
+  na.omit() %>% 
+  group_by(earliest_filing_year, doc_ctry_code) %>% 
+  mutate(is_green = sum(green_cat)) %>%
+  filter(earliest_filing_year >= 1900 & earliest_filing_year <= 2020) %>%
+  ggplot(aes(x = earliest_filing_year, y = green_cat, fill = green_inventory)) +
+  #geom_line() +
+  geom_area() +
+  scale_x_continuous(breaks=c(1900,1920,1940,1960,1980,2000,2020), limits=c(1900,2020)) +
+  #geom_bar(stat="identity") +
+  #geom_smooth(method = "loess", se = FALSE) +
+  facet_wrap(~doc_ctry_code, scales = "free")
+```
+
