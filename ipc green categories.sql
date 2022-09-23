@@ -1,3 +1,5 @@
+--IPC Green Inventory
+
 SELECT
 	counting_greens.doc_ctry_code,
 	tls201_appln_1.earliest_filing_year,
@@ -27,3 +29,54 @@ FROM
 	counting_greens
 	LEFT JOIN tls209_appln_ipc ON counting_greens.appln_id = tls209_appln_ipc.appln_id
 	LEFT JOIN tls201_appln_1 ON counting_greens.appln_id = tls201_appln_1.appln_id;
+
+--CPC Y02 Climate mitigation technologies
+
+SELECT
+	counting_greens.doc_ctry_code,
+	tls201_appln_1.earliest_filing_year,
+	tls224_appln_cpc.cpc_class_symbol,
+	counting_greens.appln_id,
+		CASE 
+        WHEN tls224_appln_cpc.cpc_class_symbol LIKE 'Y02A%' THEN 'ADAPTATION TO CLIMATE CHANGE'
+        WHEN tls224_appln_cpc.cpc_class_symbol LIKE 'Y02B%' THEN 'BUILDINGS, e.g. HOUSING, HOUSE APPLIANCES OR RELATED END-USER APPLICATIONS'
+         WHEN tls224_appln_cpc.cpc_class_symbol LIKE 'Y02C%' THEN 'CAPTURE, STORAGE, SEQUESTRATION OR DISPOSAL OF GHG'
+         WHEN tls224_appln_cpc.cpc_class_symbol LIKE 'Y02D%' THEN 'INFORMATION AND COMMUNICATION TECHNOLOGIES'
+         WHEN tls224_appln_cpc.cpc_class_symbol LIKE 'Y02E%' THEN 'REDUCTION OF GHG EMISSIONS (ENERGY GENERATION, TRANSMISSION OR DISTRIBUTION)'
+         WHEN tls224_appln_cpc.cpc_class_symbol LIKE 'Y02P%' THEN 'THE PRODUCTION OR PROCESSING OF GOODS'
+         WHEN tls224_appln_cpc.cpc_class_symbol LIKE 'Y02T%' THEN 'TRANSPORTATION'
+         WHEN tls224_appln_cpc.cpc_class_symbol LIKE 'Y02W%' THEN 'WASTEWATER TREATMENT OR WASTE MANAGEMENT'
+         WHEN tls224_appln_cpc.cpc_class_symbol LIKE 'Y04S%' THEN 'TECHNOLOGIES RELATED TO POWER NETWORK OPERATION, COMMUNICATION OR INFORMATION TECHNOLOGIES'
+         ELSE 'Other'
+         END AS CPC_climate,
+         CASE WHEN tls224_appln_cpc.cpc_class_symbol LIKE 'Y02%' OR 'Y04S%' THEN 1
+         ELSE 0
+         END AS is_green_cpc
+FROM
+	counting_greens
+	LEFT JOIN tls224_appln_cpc ON counting_greens.appln_id = tls224_appln_cpc.appln_id
+	LEFT JOIN tls201_appln_1 ON counting_greens.appln_id = tls201_appln_1.appln_id;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
