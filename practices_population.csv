@@ -1,0 +1,651 @@
+﻿year;ctry_code;country;population
+1890;AU;Australia;NA
+1891;AU;Australia;NA
+1892;AU;Australia;NA
+1893;AU;Australia;NA
+1894;AU;Australia;NA
+1895;AU;Australia;NA
+1896;AU;Australia;NA
+1897;AU;Australia;NA
+1898;AU;Australia;NA
+1899;AU;Australia;NA
+1900;AU;Australia;36,9
+1901;AU;Australia;37,6
+1902;AU;Australia;38,2
+1903;AU;Australia;38,7
+1904;AU;Australia;39,4
+1905;AU;Australia;40
+1906;AU;Australia;40,6
+1907;AU;Australia;41,2
+1908;AU;Australia;41,9
+1909;AU;Australia;42,5
+1910;AU;Australia;43,3
+1911;AU;Australia;44,1
+1912;AU;Australia;44,9
+1913;AU;Australia;45,9
+1914;AU;Australia;46,8
+1915;AU;Australia;47,7
+1916;AU;Australia;48,7
+1917;AU;Australia;49,7
+1918;AU;Australia;50,7
+1919;AU;Australia;51,7
+1920;AU;Australia;52,7
+1921;AU;Australia;53,8
+1922;AU;Australia;54,8
+1923;AU;Australia;55,9
+1924;AU;Australia;56,9
+1925;AU;Australia;58
+1926;AU;Australia;59,1
+1927;AU;Australia;60,2
+1928;AU;Australia;61,4
+1929;AU;Australia;62,4
+1930;AU;Australia;63,3
+1931;AU;Australia;64,1
+1932;AU;Australia;64,8
+1933;AU;Australia;65,4
+1934;AU;Australia;65,9
+1935;AU;Australia;66,5
+1936;AU;Australia;67
+1937;AU;Australia;67,6
+1938;AU;Australia;68,2
+1939;AU;Australia;68,9
+1940;AU;Australia;69,7
+1941;AU;Australia;70,6
+1942;AU;Australia;71,6
+1943;AU;Australia;72,8
+1944;AU;Australia;74
+1945;AU;Australia;75,2
+1946;AU;Australia;76,4
+1947;AU;Australia;77,6
+1948;AU;Australia;78,9
+1949;AU;Australia;80,3
+1950;AU;Australia;81,8
+1951;AU;Australia;84
+1952;AU;Australia;86
+1953;AU;Australia;87,8
+1954;AU;Australia;89,7
+1955;AU;Australia;91,7
+1956;AU;Australia;93,7
+1957;AU;Australia;95,9
+1958;AU;Australia;98,1
+1959;AU;Australia;100
+1960;AU;Australia;102
+1961;AU;Australia;104
+1962;AU;Australia;106
+1963;AU;Australia;108
+1964;AU;Australia;111
+1965;AU;Australia;113
+1966;AU;Australia;116
+1967;AU;Australia;119
+1968;AU;Australia;122
+1969;AU;Australia;125
+1970;AU;Australia;128
+1971;AU;Australia;130
+1972;AU;Australia;132
+1973;AU;Australia;134
+1974;AU;Australia;136
+1975;AU;Australia;138
+1976;AU;Australia;139
+1977;AU;Australia;141
+1978;AU;Australia;142
+1979;AU;Australia;144
+1980;AU;Australia;146
+1981;AU;Australia;148
+1982;AU;Australia;150
+1983;AU;Australia;152
+1984;AU;Australia;154
+1985;AU;Australia;157
+1986;AU;Australia;159
+1987;AU;Australia;162
+1988;AU;Australia;165
+1989;AU;Australia;167
+1990;AU;Australia;170
+1991;AU;Australia;172
+1992;AU;Australia;174
+1993;AU;Australia;176
+1994;AU;Australia;178
+1995;AU;Australia;180
+1996;AU;Australia;182
+1997;AU;Australia;184
+1998;AU;Australia;186
+1999;AU;Australia;188
+2000;AU;Australia;190
+2001;AU;Australia;192
+2002;AU;Australia;194
+2003;AU;Australia;196
+2004;AU;Australia;199
+2005;AU;Australia;202
+2006;AU;Australia;205
+2007;AU;Australia;209
+2008;AU;Australia;213
+2009;AU;Australia;218
+2010;AU;Australia;222
+2011;AU;Australia;225
+2012;AU;Australia;229
+2013;AU;Australia;233
+2014;AU;Australia;236
+2015;AU;Australia;239
+2016;AU;Australia;243
+2017;AU;Australia;246
+2018;AU;Australia;249
+2019;AU;Australia;252
+1890;DE;Germany;NA
+1891;DE;Germany;NA
+1892;DE;Germany;NA
+1893;DE;Germany;NA
+1894;DE;Germany;NA
+1895;DE;Germany;NA
+1896;DE;Germany;NA
+1897;DE;Germany;NA
+1898;DE;Germany;NA
+1899;DE;Germany;NA
+1900;DE;Germany;552
+1901;DE;Germany;560
+1902;DE;Germany;568
+1903;DE;Germany;576
+1904;DE;Germany;585
+1905;DE;Germany;594
+1906;DE;Germany;603
+1907;DE;Germany;612
+1908;DE;Germany;621
+1909;DE;Germany;628
+1910;DE;Germany;632
+1911;DE;Germany;635
+1912;DE;Germany;635
+1913;DE;Germany;634
+1914;DE;Germany;632
+1915;DE;Germany;630
+1916;DE;Germany;628
+1917;DE;Germany;626
+1918;DE;Germany;624
+1919;DE;Germany;623
+1920;DE;Germany;624
+1921;DE;Germany;626
+1922;DE;Germany;628
+1923;DE;Germany;633
+1924;DE;Germany;637
+1925;DE;Germany;641
+1926;DE;Germany;645
+1927;DE;Germany;650
+1928;DE;Germany;654
+1929;DE;Germany;659
+1930;DE;Germany;663
+1931;DE;Germany;668
+1932;DE;Germany;672
+1933;DE;Germany;677
+1934;DE;Germany;682
+1935;DE;Germany;687
+1936;DE;Germany;691
+1937;DE;Germany;696
+1938;DE;Germany;701
+1939;DE;Germany;705
+1940;DE;Germany;707
+1941;DE;Germany;708
+1942;DE;Germany;708
+1943;DE;Germany;707
+1944;DE;Germany;705
+1945;DE;Germany;704
+1946;DE;Germany;702
+1947;DE;Germany;701
+1948;DE;Germany;699
+1949;DE;Germany;699
+1950;DE;Germany;700
+1951;DE;Germany;703
+1952;DE;Germany;706
+1953;DE;Germany;709
+1954;DE;Germany;712
+1955;DE;Germany;715
+1956;DE;Germany;719
+1957;DE;Germany;722
+1958;DE;Germany;725
+1959;DE;Germany;730
+1960;DE;Germany;734
+1961;DE;Germany;739
+1962;DE;Germany;745
+1963;DE;Germany;751
+1964;DE;Germany;757
+1965;DE;Germany;763
+1966;DE;Germany;768
+1967;DE;Germany;774
+1968;DE;Germany;778
+1969;DE;Germany;783
+1970;DE;Germany;786
+1971;DE;Germany;788
+1972;DE;Germany;789
+1973;DE;Germany;789
+1974;DE;Germany;789
+1975;DE;Germany;789
+1976;DE;Germany;788
+1977;DE;Germany;787
+1978;DE;Germany;786
+1979;DE;Germany;784
+1980;DE;Germany;783
+1981;DE;Germany;781
+1982;DE;Germany;779
+1983;DE;Germany;778
+1984;DE;Germany;777
+1985;DE;Germany;777
+1986;DE;Germany;778
+1987;DE;Germany;780
+1988;DE;Germany;783
+1989;DE;Germany;787
+1990;DE;Germany;791
+1991;DE;Germany;795
+1992;DE;Germany;800
+1993;DE;Germany;804
+1994;DE;Germany;808
+1995;DE;Germany;811
+1996;DE;Germany;813
+1997;DE;Germany;814
+1998;DE;Germany;814
+1999;DE;Germany;814
+2000;DE;Germany;814
+2001;DE;Germany;815
+2002;DE;Germany;815
+2003;DE;Germany;816
+2004;DE;Germany;816
+2005;DE;Germany;816
+2006;DE;Germany;815
+2007;DE;Germany;813
+2008;DE;Germany;811
+2009;DE;Germany;809
+2010;DE;Germany;808
+2011;DE;Germany;809
+2012;DE;Germany;810
+2013;DE;Germany;812
+2014;DE;Germany;815
+2015;DE;Germany;818
+2016;DE;Germany;822
+2017;DE;Germany;827
+2018;DE;Germany;831
+2019;DE;Germany;835
+1890;IN;India;NA
+1891;IN;India;NA
+1892;IN;India;NA
+1893;IN;India;NA
+1894;IN;India;NA
+1895;IN;India;NA
+1896;IN;India;NA
+1897;IN;India;2890
+1898;IN;India;2900
+1899;IN;India;2910
+1900;IN;India;2920
+1901;IN;India;2930
+1902;IN;India;2950
+1903;IN;India;2970
+1904;IN;India;2990
+1905;IN;India;3010
+1906;IN;India;3030
+1907;IN;India;3050
+1908;IN;India;3070
+1909;IN;India;3080
+1910;IN;India;3100
+1911;IN;India;3110
+1912;IN;India;3120
+1913;IN;India;3120
+1914;IN;India;3130
+1915;IN;India;3130
+1916;IN;India;3140
+1917;IN;India;3140
+1918;IN;India;3150
+1919;IN;India;3150
+1920;IN;India;3170
+1921;IN;India;3190
+1922;IN;India;3210
+1923;IN;India;3250
+1924;IN;India;3280
+1925;IN;India;3310
+1926;IN;India;3340
+1927;IN;India;3370
+1928;IN;India;3400
+1929;IN;India;3440
+1930;IN;India;3480
+1931;IN;India;3520
+1932;IN;India;3570
+1933;IN;India;3620
+1934;IN;India;3670
+1935;IN;India;3720
+1936;IN;India;3770
+1937;IN;India;3830
+1938;IN;India;3880
+1939;IN;India;3920
+1940;IN;India;3940
+1941;IN;India;NA
+1942;IN;India;3930
+1943;IN;India;3900
+1944;IN;India;3870
+1945;IN;India;3840
+1946;IN;India;3820
+1947;IN;India;3790
+1948;IN;India;3760
+1949;IN;India;3750
+1950;IN;India;3760
+1951;IN;India;3820
+1952;IN;India;3890
+1953;IN;India;3960
+1954;IN;India;4030
+1955;IN;India;4100
+1956;IN;India;4170
+1957;IN;India;4250
+1958;IN;India;4330
+1959;IN;India;4420
+1960;IN;India;4510
+1961;IN;India;4600
+1962;IN;India;4690
+1963;IN;India;4790
+1964;IN;India;4890
+1965;IN;India;4990
+1966;IN;India;5100
+1967;IN;India;5200
+1968;IN;India;5320
+1969;IN;India;5430
+1970;IN;India;5550
+1971;IN;India;5680
+1972;IN;India;5810
+1973;IN;India;5950
+1974;IN;India;6090
+1975;IN;India;6230
+1976;IN;India;6380
+1977;IN;India;6520
+1978;IN;India;6670
+1979;IN;India;6830
+1980;IN;India;6990
+1981;IN;India;7150
+1982;IN;India;7320
+1983;IN;India;7490
+1984;IN;India;7670
+1985;IN;India;7840
+1986;IN;India;8020
+1987;IN;India;8200
+1988;IN;India;8370
+1989;IN;India;8550
+1990;IN;India;8730
+1991;IN;India;8910
+1992;IN;India;9090
+1993;IN;India;9270
+1994;IN;India;9460
+1995;IN;India;9640
+1996;IN;India;9820
+1997;IN;India;10000
+1998;IN;India;10200
+1999;IN;India;10400
+2000;IN;India;10600
+2001;IN;India;10800
+2002;IN;India;10900
+2003;IN;India;11100
+2004;IN;India;11300
+2005;IN;India;11500
+2006;IN;India;11700
+2007;IN;India;11800
+2008;IN;India;12000
+2009;IN;India;12200
+2010;IN;India;12300
+2011;IN;India;12500
+2012;IN;India;12700
+2013;IN;India;12800
+2014;IN;India;13000
+2015;IN;India;13100
+2016;IN;India;13200
+2017;IN;India;13400
+2018;IN;India;13500
+2019;IN;India;13700
+1890;RU;Russian Federation & USSR;NA
+1891;RU;Russian Federation & USSR;NA
+1892;RU;Russian Federation & USSR;NA
+1893;RU;Russian Federation & USSR;NA
+1894;RU;Russian Federation & USSR;NA
+1895;RU;Russian Federation & USSR;NA
+1896;RU;Russian Federation & USSR;NA
+1897;RU;Russian Federation & USSR;NA
+1898;RU;Russian Federation & USSR;NA
+1899;RU;Russian Federation & USSR;NA
+1900;RU;Russian Federation & USSR;649
+1901;RU;Russian Federation & USSR;655
+1902;RU;Russian Federation & USSR;661
+1903;RU;Russian Federation & USSR;667
+1904;RU;Russian Federation & USSR;673
+1905;RU;Russian Federation & USSR;680
+1906;RU;Russian Federation & USSR;686
+1907;RU;Russian Federation & USSR;692
+1908;RU;Russian Federation & USSR;698
+1909;RU;Russian Federation & USSR;705
+1910;RU;Russian Federation & USSR;711
+1911;RU;Russian Federation & USSR;717
+1912;RU;Russian Federation & USSR;724
+1913;RU;Russian Federation & USSR;731
+1914;RU;Russian Federation & USSR;737
+1915;RU;Russian Federation & USSR;744
+1916;RU;Russian Federation & USSR;751
+1917;RU;Russian Federation & USSR;758
+1918;RU;Russian Federation & USSR;765
+1919;RU;Russian Federation & USSR;772
+1920;RU;Russian Federation & USSR;779
+1921;RU;Russian Federation & USSR;786
+1922;RU;Russian Federation & USSR;1524,03
+1923;RU;Russian Federation & USSR;1530,55
+1924;RU;Russian Federation & USSR;1555,81
+1925;RU;Russian Federation & USSR;1589,83
+1926;RU;Russian Federation & USSR;1626,21
+1927;RU;Russian Federation & USSR;1661,17
+1928;RU;Russian Federation & USSR;1692,69
+1929;RU;Russian Federation & USSR;1720,17
+1930;RU;Russian Federation & USSR;1742,12
+1931;RU;Russian Federation & USSR;1759,87
+1932;RU;Russian Federation & USSR;1768,07
+1933;RU;Russian Federation & USSR;1774,01
+1934;RU;Russian Federation & USSR;1784,53
+1935;RU;Russian Federation & USSR;1796,36
+1936;RU;Russian Federation & USSR;1815,02
+1937;RU;Russian Federation & USSR;1846,26
+1938;RU;Russian Federation & USSR;1884,98
+1939;RU;Russian Federation & USSR;1923,79
+1940;RU;Russian Federation & USSR;1959,7
+1941;RU;Russian Federation & USSR;945
+1942;RU;Russian Federation & USSR;953
+1943;RU;Russian Federation & USSR;962
+1944;RU;Russian Federation & USSR;971
+1945;RU;Russian Federation & USSR;980
+1946;RU;Russian Federation & USSR;1739
+1947;RU;Russian Federation & USSR;1740
+1948;RU;Russian Federation & USSR;1751
+1949;RU;Russian Federation & USSR;1775
+1950;RU;Russian Federation & USSR;1795,71
+1951;RU;Russian Federation & USSR;1826,77
+1952;RU;Russian Federation & USSR;1858,56
+1953;RU;Russian Federation & USSR;1889,61
+1954;RU;Russian Federation & USSR;1921,71
+1955;RU;Russian Federation & USSR;1956,13
+1956;RU;Russian Federation & USSR;1991,03
+1957;RU;Russian Federation & USSR;2026,04
+1958;RU;Russian Federation & USSR;2062,01
+1959;RU;Russian Federation & USSR;2099,28
+1960;RU;Russian Federation & USSR;2137,8
+1961;RU;Russian Federation & USSR;2176,18
+1962;RU;Russian Federation & USSR;2212,27
+1963;RU;Russian Federation & USSR;2245,85
+1964;RU;Russian Federation & USSR;2276,98
+1965;RU;Russian Federation & USSR;2305,13
+1966;RU;Russian Federation & USSR;2331,39
+1967;RU;Russian Federation & USSR;2356,3
+1968;RU;Russian Federation & USSR;2379,83
+1969;RU;Russian Federation & USSR;2402,53
+1970;RU;Russian Federation & USSR;2424,78
+1971;RU;Russian Federation & USSR;2448,87
+1972;RU;Russian Federation & USSR;2473,43
+1973;RU;Russian Federation & USSR;2497,12
+1974;RU;Russian Federation & USSR;2521,11
+1975;RU;Russian Federation & USSR;2545,19
+1976;RU;Russian Federation & USSR;2568,83
+1977;RU;Russian Federation & USSR;2592,25
+1978;RU;Russian Federation & USSR;2615,25
+1979;RU;Russian Federation & USSR;2637,51
+1980;RU;Russian Federation & USSR;2659,26
+1981;RU;Russian Federation & USSR;2681,23
+1982;RU;Russian Federation & USSR;2703,9
+1983;RU;Russian Federation & USSR;2727,17
+1984;RU;Russian Federation & USSR;2753,3
+1985;RU;Russian Federation & USSR;2778,12
+1986;RU;Russian Federation & USSR;2802,96
+1987;RU;Russian Federation & USSR;2827,18
+1988;RU;Russian Federation & USSR;2850,2
+1989;RU;Russian Federation & USSR;2864,62
+1990;RU;Russian Federation & USSR;2883,61
+1991;RU;Russian Federation & USSR;2899,49
+1992;RU;Russian Federation & USSR;1482,723385
+1993;RU;Russian Federation & USSR;1480,727795
+1994;RU;Russian Federation & USSR;1481,72559
+1995;RU;Russian Federation & USSR;1479,73
+1996;RU;Russian Federation & USSR;1479,73
+1997;RU;Russian Federation & USSR;1474,741025
+1998;RU;Russian Federation & USSR;1471,74764
+1999;RU;Russian Federation & USSR;1465,76087
+2000;RU;Russian Federation & USSR;1459,7741
+2001;RU;Russian Federation & USSR;1448,798355
+2002;RU;Russian Federation & USSR;1446,802765
+2003;RU;Russian Federation & USSR;1439,8182
+2004;RU;Russian Federation & USSR;1434,829225
+2005;RU;Russian Federation & USSR;1428,842454
+2006;RU;Russian Federation & USSR;1424,851274
+2007;RU;Russian Federation & USSR;1424,851274
+2008;RU;Russian Federation & USSR;1423,853479
+2009;RU;Russian Federation & USSR;1424,851274
+2010;RU;Russian Federation & USSR;1425,849069
+2011;RU;Russian Federation & USSR;1426,846864
+2012;RU;Russian Federation & USSR;1429,840249
+2013;RU;Russian Federation & USSR;1433,83143
+2014;RU;Russian Federation & USSR;1459,7741
+2015;RU;Russian Federation & USSR;1455
+2016;RU;Russian Federation & USSR;1460
+2017;RU;Russian Federation & USSR;1460
+2019;RU;Russian Federation & USSR;1460
+2018;RU;Russian Federation & USSR;1460
+1890;US;United States;647
+1891;US;United States;661
+1892;US;United States;674
+1893;US;United States;687
+1894;US;United States;701
+1895;US;United States;715
+1896;US;United States;729
+1897;US;United States;743
+1898;US;United States;757
+1899;US;United States;772
+1900;US;United States;788
+1901;US;United States;803
+1902;US;United States;819
+1903;US;United States;836
+1904;US;United States;853
+1905;US;United States;870
+1906;US;United States;888
+1907;US;United States;906
+1908;US;United States;924
+1909;US;United States;942
+1910;US;United States;959
+1911;US;United States;975
+1912;US;United States;990
+1913;US;United States;1010
+1914;US;United States;1020
+1915;US;United States;1040
+1916;US;United States;1050
+1917;US;United States;1070
+1918;US;United States;1080
+1919;US;United States;1100
+1920;US;United States;1110
+1921;US;United States;1130
+1922;US;United States;1150
+1923;US;United States;1160
+1924;US;United States;1180
+1925;US;United States;1200
+1926;US;United States;1210
+1927;US;United States;1230
+1928;US;United States;1250
+1929;US;United States;1270
+1930;US;United States;1280
+1931;US;United States;1290
+1932;US;United States;1310
+1933;US;United States;1310
+1934;US;United States;1320
+1935;US;United States;1330
+1936;US;United States;1340
+1937;US;United States;1350
+1938;US;United States;1360
+1939;US;United States;1370
+1940;US;United States;1390
+1941;US;United States;1400
+1942;US;United States;1420
+1943;US;United States;1440
+1944;US;United States;1460
+1945;US;United States;1480
+1946;US;United States;1500
+1947;US;United States;1520
+1948;US;United States;1540
+1949;US;United States;1560
+1950;US;United States;1590
+1951;US;United States;1610
+1952;US;United States;1630
+1953;US;United States;1660
+1954;US;United States;1690
+1955;US;United States;1720
+1956;US;United States;1750
+1957;US;United States;1780
+1958;US;United States;1810
+1959;US;United States;1840
+1960;US;United States;1870
+1961;US;United States;1900
+1962;US;United States;1920
+1963;US;United States;1950
+1964;US;United States;1970
+1965;US;United States;2000
+1966;US;United States;2020
+1967;US;United States;2040
+1968;US;United States;2060
+1969;US;United States;2080
+1970;US;United States;2100
+1971;US;United States;2110
+1972;US;United States;2130
+1973;US;United States;2150
+1974;US;United States;2170
+1975;US;United States;2190
+1976;US;United States;2210
+1977;US;United States;2230
+1978;US;United States;2250
+1979;US;United States;2270
+1980;US;United States;2290
+1981;US;United States;2320
+1982;US;United States;2340
+1983;US;United States;2360
+1984;US;United States;2380
+1985;US;United States;2400
+1986;US;United States;2430
+1987;US;United States;2450
+1988;US;United States;2470
+1989;US;United States;2500
+1990;US;United States;2520
+1991;US;United States;2550
+1992;US;United States;2570
+1993;US;United States;2600
+1994;US;United States;2620
+1995;US;United States;2650
+1996;US;United States;2680
+1997;US;United States;2720
+1998;US;United States;2750
+1999;US;United States;2790
+2000;US;United States;2820
+2001;US;United States;2850
+2002;US;United States;2870
+2003;US;United States;2900
+2004;US;United States;2920
+2005;US;United States;2950
+2006;US;United States;2980
+2007;US;United States;3010
+2008;US;United States;3030
+2009;US;United States;3060
+2010;US;United States;3090
+2011;US;United States;3120
+2012;US;United States;3140
+2013;US;United States;3160
+2014;US;United States;3190
+2015;US;United States;3210
+2016;US;United States;3230
+2017;US;United States;3250
+2018;US;United States;3270
+2019;US;United States;3290

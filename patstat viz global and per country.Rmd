@@ -1,0 +1,247 @@
+---
+title: "patstat viz"
+output: html_document
+date: "2022-12-19"
+---
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+```
+
+```{r population data, data location should be changed}
+
+#1=1
+global_pop <- read.csv("~/Downloads/WorldPopulationAnnual12000years_interpolated_HYDEandUNto2015.csv")
+
+#1=100 000
+population <- read_csv2("~/Downloads/practices_population.csv")
+```
+
+```{r global data}
+global_cpc <- read.csv("~/Downloads/patstat2020a-19-12-global_cpc_cat.csv")
+
+global_ipc <- read.csv("~/Downloads/patstat2020a-19-12-global_ipc_cat.csv")
+
+
+cpc_pop <- global_cpc %>% 
+  pivot_wider(names_from = "cpc_green", values_from = "count") %>% 
+  rename(year = earliest_filing_year) %>% 
+  left_join(global_pop) %>% 
+  replace(is.na(.), 0) %>% 
+  relocate("Other", .after = "year") %>% 
+  mutate(total = rowSums(across(c(2:11), na.rm = TRUE)),
+         is_green = rowSums(across(c(3:11), na.rm = TRUE)),
+         share = is_green*100/total,
+         per_cap = is_green/population)
+
+ipc_pop <- global_ipc %>% 
+  pivot_wider(names_from = "ipc_green", values_from = "count") %>% 
+  rename(year = earliest_filing_year) %>% 
+  left_join(global_pop) %>% 
+  replace(is.na(.), 0) %>% 
+  relocate("Other", .after = "year") %>% 
+  mutate(total = rowSums(across(c(2:9), na.rm = TRUE)),
+         is_green = rowSums(across(c(3:9), na.rm = TRUE)),
+         share = is_green*100/total,
+         per_cap = is_green/population,
+         tot_cap = total/population)
+
+```
+
+```{r global viz}
+options(scipen = TRUE)
+
+cpc_pop %>% 
+   ggplot(aes(year, share)) +
+  scale_x_continuous(breaks=c(1900,1920,1940,1960,1980,2000,2017), limits=c(1900,2017)) +
+  #geom_line() +
+  geom_smooth(method = "loess", span = 0.3, se = FALSE) +
+  geom_jitter(alpha = 0.2) +
+  #scale_y_continuous(trans='log2') +
+  labs(
+    y = "Global share of CCMT patents"
+  ) 
+
+ipc_pop %>% 
+   ggplot(aes(year, share)) +
+  scale_x_continuous(breaks=c(1900,1920,1940,1960,1980,2000,2017), limits=c(1900,2017)) +
+  #geom_line() +
+  geom_smooth(method = "loess", span = 0.3, se = FALSE) +
+  geom_jitter(alpha = 0.2) +
+  #scale_y_continuous(trans='log2') +
+  labs(
+    y = "Global share of green patents (IPC)"
+  ) 
+
+
+cpc_pop %>% 
+   ggplot(aes(year, per_cap)) +
+  scale_x_continuous(breaks=c(1900,1920,1940,1960,1980,2000,2017), limits=c(1900,2017)) +
+  #geom_line() +
+  geom_smooth(method = "loess", span = 0.3, se = FALSE) +
+  geom_jitter(alpha = 0.2) +
+  #scale_y_continuous(trans='log2') +
+  labs(
+    y = "Global CCMT patents per capita"
+  ) 
+
+ipc_pop %>% 
+   ggplot(aes(year, per_cap)) +
+  scale_x_continuous(breaks=c(1900,1920,1940,1960,1980,2000,2017), limits=c(1900,2017)) +
+  #geom_line() +
+  geom_smooth(method = "loess", span = 0.3, se = FALSE) +
+  geom_jitter(alpha = 0.2) +
+  #scale_y_continuous(trans='log2') +
+  labs(
+    y = "Global green patents (IPC) per capita"
+  ) 
+
+ipc_pop %>% 
+  ggplot(aes(year, tot_cap)) +
+  scale_x_continuous(breaks=c(1900,1920,1940,1960,1980,2000,2020), limits=c(1900,2020)) +
+  #geom_line() +
+  geom_smooth(method = "loess", span = 0.3, se = FALSE) +
+  geom_jitter(alpha = 0.2) +
+  #scale_y_continuous(trans='log2') +
+  labs(
+    y = "Global total innovations per capita"
+  ) 
+
+
+global_cpc %>% 
+  filter(cpc_green != "Other") %>% 
+  ggplot(aes(earliest_filing_year, count, color = cpc_green)) +
+  scale_x_continuous(breaks=c(1900,1920,1940,1960,1980,2000,2018), limits=c(1900,2018)) +
+  #geom_line() +
+  geom_smooth(method = "loess", span = 0.3, se = FALSE) +
+  geom_jitter(alpha = 0.2) +
+  #scale_y_continuous(trans='log2') +
+  labs(
+    y = "Global CCMT patents per topic"
+  ) 
+
+global_ipc %>% 
+  filter(ipc_green != "Other") %>% 
+  ggplot(aes(earliest_filing_year, count, color = ipc_green)) +
+  scale_x_continuous(breaks=c(1900,1920,1940,1960,1980,2000,2018), limits=c(1900,2018)) +
+  #geom_line() +
+  geom_smooth(method = "loess", span = 0.3, se = FALSE) +
+  geom_jitter(alpha = 0.2) +
+  #scale_y_continuous(trans='log2') +
+  labs(
+    y = "Global green patents (IPC) per topic"
+  )
+```
+
+```{r data and viz for AU DE US IN RU, message=FALSE, warning=FALSE}
+ipc <- read_csv("~/Downloads/patstat2020a-19-12-country_ipc_cat.csv")
+cpc <- read_csv("~/Downloads/patstat2020a-19-12-country_cpc_cat.csv")
+
+options(scipen = TRUE)
+
+ipc_5 <- ipc %>% 
+  filter(ctry_code %in% c("US", "DE", "IN", "AU", "RU")) %>% 
+  pivot_wider(names_from = "ipc_green", values_from = "count") %>% 
+  left_join(population, by = c("earliest_filing_year", "ctry_code")) %>% 
+  relocate("Other", .after = "ctry_code") %>% 
+  mutate_if(is.numeric , replace_na, replace = 0) %>% 
+  mutate(total = rowSums(across(c(3:10), na.rm = TRUE)),
+         is_green = rowSums(across(c(4:10), na.rm = TRUE)),
+         share = is_green*100/total,
+         per_cap = is_green/population) %>% 
+  na.omit()
+
+##Check for outliers
+ipc_5 %>% 
+  ggplot(aes(x = ctry_code, y = share, group = ctry_code)) +
+  geom_boxplot() 
+
+#<10 could be appropriate
+
+#For scale transoformation
+coeff <- 1
+
+#Colors
+per_cap_col  <- "#EE6352"
+share_col <- "#08B2E3"
+
+#The plot
+ipc_5 %>% 
+  #filter(share < 7.5) %>% 
+  #filter(earliest_filing_year <=2014) %>% 
+  ggplot(mapping=aes(x=earliest_filing_year)) +
+  geom_smooth( mapping = aes(y=per_cap), color = per_cap_col, span = 0.3, se = FALSE) +
+  geom_point(mapping = aes(y = per_cap), color = per_cap_col,  alpha = 0.2) +
+  geom_smooth( mapping = aes(y=share), color = share_col, span = 0.3, se = FALSE) +
+  geom_point(mapping = aes(y = share), color = share_col,  alpha = 0.2) +
+  scale_x_continuous(breaks=c(1900,1920,1940,1960,1980,2000,2018), limits=c(1900,2018)) +
+   scale_y_continuous(
+    # Features of the first axis
+    name = "CCMT patents per 100 000 people",
+    
+    # Add a second axis and specify its features
+    sec.axis = sec_axis(~.*coeff, name="%")
+  ) + 
+   theme(
+    axis.title.y = element_text(color = per_cap_col, size=13),
+    axis.title.y.right = element_text(color = share_col, size=13)
+  ) +
+  facet_wrap(~country) +
+  labs (
+    x = "Earliest filing year"
+  )
+
+cpc_5 <- cpc %>% 
+  filter(ctry_code %in% c("US", "DE", "IN", "AU", "RU")) %>% 
+  pivot_wider(names_from = "cpc_green", values_from = "count") %>% 
+  left_join(population, by = c("earliest_filing_year", "ctry_code")) %>% 
+  relocate("Other", .after = "ctry_code") %>% 
+  mutate_if(is.numeric , replace_na, replace = 0) %>% 
+  mutate(total = rowSums(across(c(3:12), na.rm = TRUE)),
+         is_green = rowSums(across(c(4:12), na.rm = TRUE)),
+         share = is_green*100/total,
+         per_cap = is_green/population) %>% 
+  na.omit()
+
+cpc_5 %>% 
+  ggplot(aes(x = ctry_code, y = share, group = ctry_code)) +
+  geom_boxplot() 
+
+#<6 maybe even?
+
+#For scale transoformation
+coeff <- 1
+
+#Colors
+per_cap_col  <- "#EE6352"
+share_col <- "#08B2E3"
+
+#The plot
+cpc_5 %>% 
+  #filter(share < 7.5) %>% 
+  filter(earliest_filing_year <=2017) %>% 
+  ggplot(mapping=aes(x=earliest_filing_year)) +
+  geom_smooth( mapping = aes(y=per_cap), color = per_cap_col, span = 0.3, se = FALSE) +
+  geom_point(mapping = aes(y = per_cap), color = per_cap_col,  alpha = 0.2) +
+  geom_smooth( mapping = aes(y=share), color = share_col, span = 0.7, se = FALSE) +
+  geom_point(mapping = aes(y = share), color = share_col,  alpha = 0.2) +
+  scale_x_continuous(breaks=c(1900,1920,1940,1960,1980,2000,2018), limits=c(1900,2018)) +
+   scale_y_continuous(
+    # Features of the first axis
+    name = "CCMT patents per 100 000 people",
+    
+    # Add a second axis and specify its features
+    sec.axis = sec_axis(~.*coeff, name="%")
+  ) + 
+   theme(
+    axis.title.y = element_text(color = per_cap_col, size=13),
+    axis.title.y.right = element_text(color = share_col, size=13)
+  ) +
+  facet_wrap(~country) +
+  labs (
+    x = "Earliest filing year"
+  )
+
+
+```
