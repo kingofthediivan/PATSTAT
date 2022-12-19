@@ -12,16 +12,17 @@ library(ggplot2)
 ```{r population data, data location should be changed}
 
 #1=1
-global_pop <- read.csv("~/Downloads/WorldPopulationAnnual12000years_interpolated_HYDEandUNto2015.csv")
+global_pop <- read.csv("~/Documents/GitHub/PATSTAT/WorldPopulationAnnual12000years_interpolated_HYDEandUNto2015.csv") %>% 
+  rename(population = 2)
 
 #1=100 000
-population <- read_csv2("~/Downloads/practices_population.csv")
+population <- read_csv2("~/Documents/GitHub/PATSTAT/practices_population.csv")
 ```
 
 ```{r global data}
-global_cpc <- read.csv("~/Downloads/patstat2020a-19-12-global_cpc_cat.csv")
+global_cpc <- read.csv("~/Documents/GitHub/PATSTAT/patstat2020a-19-12-global_cpc_cat.csv")
 
-global_ipc <- read.csv("~/Downloads/patstat2020a-19-12-global_ipc_cat.csv")
+global_ipc <- read.csv("~/Documents/GitHub/PATSTAT/patstat2020a-19-12-global_ipc_cat.csv")
 
 
 cpc_pop <- global_cpc %>% 
