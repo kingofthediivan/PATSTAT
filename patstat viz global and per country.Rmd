@@ -4,12 +4,12 @@ output: html_document
 date: "2022-12-19"
 ---
 
-```{r}
+```{r packages}
 library(tidyverse)
 library(ggplot2)
 ```
 
-```{r population data, data location should be changed}
+```{r population data, check the data location}
 
 #1=1
 global_pop <- read.csv("~/Documents/GitHub/PATSTAT/WorldPopulationAnnual12000years_interpolated_HYDEandUNto2015.csv") %>% 
