@@ -18,13 +18,13 @@ global_pop <- read.csv("~/Documents/GitHub/PATSTAT/WorldPopulationAnnual12000yea
 #1=100 000
 population <- read_csv2("~/Documents/GitHub/PATSTAT/practices_population.csv") %>% 
   rename(earliest_filing_year = year)
+
 ```
 
-```{r global data}
+```{r global data and viz for funsies}
 global_cpc <- read.csv("~/Documents/GitHub/PATSTAT/patstat2020a-19-12-global_cpc_cat.csv")
 
 global_ipc <- read.csv("~/Documents/GitHub/PATSTAT/patstat2020a-19-12-global_ipc_cat.csv")
-
 
 cpc_pop <- global_cpc %>% 
   pivot_wider(names_from = "cpc_green", values_from = "count") %>% 
@@ -48,11 +48,6 @@ ipc_pop <- global_ipc %>%
          share = is_green*100/total,
          per_cap = is_green/population,
          tot_cap = total/population)
-
-```
-
-```{r global viz}
-options(scipen = TRUE)
 
 cpc_pop %>% 
    ggplot(aes(year, share)) +
@@ -110,7 +105,6 @@ ipc_pop %>%
     y = "Global total innovations per capita"
   ) 
 
-
 global_cpc %>% 
   filter(cpc_green != "Other") %>% 
   ggplot(aes(earliest_filing_year, count, color = cpc_green)) +
@@ -137,6 +131,8 @@ global_ipc %>%
 ```
 
 ```{r data and viz for AU DE US IN RU, message=FALSE, warning=FALSE}
+
+
 ipc <- read_csv("~/Documents/GitHub/PATSTAT/patstat2020a-19-12-country_ipc_cat.csv")
 cpc <- read_csv("~/Documents/GitHub/PATSTAT/patstat2020a-19-12-country_cpc_cat.csv")
 
@@ -168,29 +164,28 @@ share_col <- "#08B2E3"
 
 #The plot
 ipc_5 %>% 
-  #filter(share < 10) %>% 
-  #filter(earliest_filing_year <=2014) %>% 
-  ggplot(mapping=aes(x=earliest_filing_year)) +
-  geom_smooth( mapping = aes(y=per_cap), color = per_cap_col, span = 0.3, se = FALSE) +
-  geom_point(mapping = aes(y = per_cap), color = per_cap_col,  alpha = 0.2) +
-  geom_smooth( mapping = aes(y=share), color = share_col, span = 0.3, se = FALSE) +
-  geom_point(mapping = aes(y = share), color = share_col,  alpha = 0.2) +
-  scale_x_continuous(breaks=c(1900,1920,1940,1960,1980,2000,2018), limits=c(1900,2018)) +
-   scale_y_continuous(
-    # Features of the first axis
+  ggplot(aes(x=earliest_filing_year,y=is_green/total,successes=floor(is_green),trials=floor(total)))+
+  geom_smooth(method="gam", mapping = aes(y=per_cap/100), color = per_cap_col, span = 0.3, se = FALSE) +
+  geom_jitter(mapping = aes(y = per_cap/100), color = per_cap_col,  alpha = 0.2) +
+  #geom_smooth(method="gam", mapping = aes(y=share), color = share_col, span = 0.7, se = FALSE) +
+  geom_jitter(mapping = aes(y = share/100), color = share_col,  alpha = 0.2) +
+  stat_smooth(method="gam",formula = cbind(successes, trials - successes) ~ s(x, k = 10,bs="ad",m=5),method.args=list(method = "REML", family=binomial))+
+  scale_x_continuous(limits=c(1900,2020),breaks=c(1900,1920,1940,1960,1980,2000,2020),labels=c(1900,1920,1940,1960,1980,2000,2020))+
+  scale_y_continuous(breaks=c(0.0,0.02,0.04,0.06),labels=c(0,2,4,6),
     name = "Green patents (IPC) per 100 000 people",
     
     # Add a second axis and specify its features
-    sec.axis = sec_axis(~.*coeff, name="%")
-  ) + 
+    sec.axis = sec_axis(~., name="Share of green patents (IPC) from total",labels = scales::label_percent(accuracy=1))) +
    theme(
     axis.title.y = element_text(color = per_cap_col, size=13),
     axis.title.y.right = element_text(color = share_col, size=13)
   ) +
-  facet_wrap(~country) +
+  facet_wrap(~country,ncol=2) +
   labs (
     x = "Earliest filing year"
-  )
+  )+
+  coord_cartesian(ylim=c(0,0.06)) +
+  theme_bw()
 
 cpc_5 <- cpc %>% 
   filter(ctry_code %in% c("US", "DE", "IN", "AU", "RU")) %>% 
@@ -198,8 +193,8 @@ cpc_5 <- cpc %>%
   left_join(population, by = c("earliest_filing_year", "ctry_code")) %>% 
   relocate("Other", .after = "ctry_code") %>% 
   mutate_if(is.numeric , replace_na, replace = 0) %>% 
-  mutate(total = rowSums(across(c(3:12), na.rm = TRUE)),
-         is_green = rowSums(across(c(4:12), na.rm = TRUE)),
+  mutate(total = rowSums(across(c(3:10), na.rm = TRUE)),
+         is_green = rowSums(across(c(4:10), na.rm = TRUE)),
          share = is_green*100/total,
          per_cap = is_green/population) %>% 
   na.omit()
@@ -217,29 +212,27 @@ share_col <- "#08B2E3"
 
 #The plot
 cpc_5 %>% 
-  #filter(share < 6) %>% 
-  filter(earliest_filing_year <=2017) %>% 
-  ggplot(mapping=aes(x=earliest_filing_year)) +
-  geom_smooth( mapping = aes(y=per_cap), color = per_cap_col, span = 0.3, se = FALSE) +
-  geom_point(mapping = aes(y = per_cap), color = per_cap_col,  alpha = 0.2) +
-  geom_smooth( mapping = aes(y=share), color = share_col, span = 0.7, se = FALSE) +
-  geom_point(mapping = aes(y = share), color = share_col,  alpha = 0.2) +
-  scale_x_continuous(breaks=c(1900,1920,1940,1960,1980,2000,2018), limits=c(1900,2018)) +
-   scale_y_continuous(
-    # Features of the first axis
-    name = "CCMT patents per 100 000 people",
+  ggplot(aes(x=earliest_filing_year,y=is_green/total,successes=floor(is_green),trials=floor(total)))+
+  geom_smooth(method="gam", mapping = aes(y=per_cap/100), color = per_cap_col, span = 0.3, se = FALSE) +
+  geom_jitter(mapping = aes(y = per_cap/100), color = per_cap_col,  alpha = 0.2) +
+  #geom_smooth(method="gam", mapping = aes(y=share), color = share_col, span = 0.7, se = FALSE) +
+  geom_jitter(mapping = aes(y = share/100), color = share_col,  alpha = 0.2) +
+  stat_smooth(method="gam",formula = cbind(successes, trials - successes) ~ s(x, k = 10,bs="ad",m=5),method.args=list(method = "REML", family=binomial))+
+  scale_x_continuous(limits=c(1900,2020),breaks=c(1900,1920,1940,1960,1980,2000,2020),labels=c(1900,1920,1940,1960,1980,2000,2020))+
+  scale_y_continuous(breaks=c(0.0,0.02,0.04,0.06),labels=c(0,2,4,6),
+    name = "CCMT-related patents per 100 000 people",
     
     # Add a second axis and specify its features
-    sec.axis = sec_axis(~.*coeff, name="%")
-  ) + 
+    sec.axis = sec_axis(~., name="Share of CCMT-related patents from total",labels = scales::label_percent(accuracy=1))) +
    theme(
     axis.title.y = element_text(color = per_cap_col, size=13),
     axis.title.y.right = element_text(color = share_col, size=13)
   ) +
-  facet_wrap(~country) +
+  facet_wrap(~country,ncol=2) +
   labs (
     x = "Earliest filing year"
-  )
-
+  )+
+  coord_cartesian(ylim=c(0,0.06)) +
+  theme_bw()
 
 ```

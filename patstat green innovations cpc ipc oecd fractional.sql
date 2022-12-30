@@ -97,7 +97,6 @@ GROUP BY
 	person_ctry_code
 order by doc_std_name_id;
 
-
 --Query 1 OK: SELECT 17 542 372, 17542372 rows affected
 
 CREATE INDEX person_ctry_code_all_person_ctry_code ON person_ctry_code_doc (person_ctry_code);
@@ -121,7 +120,6 @@ CREATE INDEX doc_ctry_code_index ON doc_ctry_code (doc_ctry_code);
 --Doing the Pasimeni (2019) procedure again, this time using the psn_id.
 
 /* Table tls206_person provides two additional sets of harmonised information. The first one is the result of a method developed by K.U.Leuven and Eurostat which harmonises patentees’ names and assigns a sector classification to them. This method generates another identification number, psn_id, which is added to PATSTAT, and concerns about 98% of the total person_id in table tls206_person. Therefore, also this additional identifier groups several person_id under the same entity. However, as for the case of doc_std_name_id, these additional sets of harmonised information present the same type of inconsistencies. Consequently, the allocation procedure can be replicated by using this additional identifier as main standardised reference, hence by replacing doc_std_name_id with psn_id.*/
-
 
 drop TABLE person_ctry_code_psn;
 
@@ -194,7 +192,6 @@ WHERE
 
 --Using the Pasimeni procedure with psn_id gives us 3 792 461 additional country codes.
 
-
 --Delete the applications without a country code
 
 DELETE FROM geoc_doc_psn
@@ -254,7 +251,6 @@ FROM
 WHERE
 	doc_ctry_code IS NULL
 	AND ctry_code IS NOT NULL;
-
 
 SELECT
 	count(DISTINCT appln_id)
